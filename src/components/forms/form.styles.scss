@@ -1,0 +1,140 @@
+@import '../../scss/variables';
+.layout-wrapper {
+	height: 89vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	// overflow: hidden;
+}
+.layout-footer {
+	padding-bottom: 10px;
+}
+
+.date_wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bell_button {
+	padding: 0 1rem;
+	color: $light-gray;
+	transition: all 400ms ease-in-out;
+	margin-top: 16px;
+}
+.bell_button:hover {
+	cursor: pointer;
+	color: $primary-color;
+}
+
+.act {
+	color: $primary-color !important;
+	background: transparent;
+}
+
+.container_notification {
+	position: relative;
+	margin-top: 0.5rem;
+	width: 100%;
+	transition: all 300ms ease-in-out;
+
+	height: 0;
+	padding: 0rem;
+	overflow: hidden;
+	.notification_title {
+		transition: all ease-in-out 200ms;
+		opacity: 0;
+	}
+}
+
+.container_notification.open {
+	height: auto;
+	padding: 1.5rem 1rem 0 1rem;
+	border: 1px dashed $primary-color;
+	margin-bottom: 0.8rem;
+	padding-bottom: 0;
+	overflow: visible;
+	.notification_title {
+		transition: all ease-in-out 200ms;
+		opacity: 1;
+	}
+
+	// background-color: red !important;
+}
+.notification_title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: -1rem;
+	line-height: 2rem;
+	left: 1rem;
+	// height: 30px;
+	background: white;
+	line-height: 0;
+	z-index: 2 !important;
+	padding: 1rem;
+	font-size: 14px;
+	font-weight: 400;
+	color: $primary-color;
+	opacity: 1;
+}
+
+.ant-upload.ant-upload-drag .ant-upload-btn {
+	display: table;
+	height: 100%;
+	padding: 1rem !important;
+}
+.dragger_container {
+	height: 200px;
+}
+.dragger_container {
+	padding: 1rem 0;
+}
+
+.trigo {
+	background: #e3c729;
+}
+.soja {
+	background: #2c7b09;
+}
+.soja {
+	background: #e59b0f;
+}
+
+.mon_config {
+	width: 300px;
+}
+.tags_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	min-height: 24px;
+	// background: red;
+	content: '.';
+	margin-bottom: 4px;
+
+	.tag {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-radius: 3px;
+		max-width: 100%;
+		margin-right: 5px;
+		width: 86%;
+		// height: 23.5px;
+		background-color: rgb(0, 162, 255);
+		padding: 2px 8px;
+		cursor: pointer;
+		color: white;
+		transition: all ease-in-out 300ms;
+	}
+	.tag:hover {
+		transition: all ease-in-out 300ms;
+		box-sizing: border-box;
+		border-left: 8px solid rgba(0, 0, 0, 0.329);
+		// box-shadow: -8px 0 #07070767;
+	}
+}

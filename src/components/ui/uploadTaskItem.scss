@@ -1,0 +1,311 @@
+@import '../../scss/variables';
+
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:focus .ql-stroke,
+.ql-snow .ql-toolbar button:focus .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+	stroke: $primary-color !important;
+}
+
+.ql-snow .ql-tooltip[data-mode='link']::before {
+	content: 'URL:';
+}
+
+.ql-snow .ql-tooltip {
+	left: 5px !important;
+	top: 1.5rem !important;
+	z-index: 1;
+	border: none;
+	// box-shadow: $box-shadow !important;
+}
+
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+	content: 'Guardar';
+}
+
+.ql-snow .ql-tooltip a.ql-action::after {
+	content: 'Editar';
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+	content: 'Eliminar';
+}
+
+.ql-snow .ql-tooltip::before {
+	content: 'URL:';
+}
+
+.note_wrapper,
+.task_wrapper,
+.file_wrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	width: 100%;
+	background: #fffcdc;
+	border-radius: 4px;
+	// box-shadow: $box-shadow;
+	min-height: 6rem;
+	border: 1px solid #e3e0e0;
+}
+
+.file_wrapper {
+	display: flex;
+	flex-direction: row;
+	background: transparent;
+	padding: 0;
+}
+.file_content {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	width: 100%;
+	.filename {
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+}
+.file_icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	border-right: 1px solid #e3e0e0;
+}
+.note_header,
+.task_header {
+	display: flex;
+	font-size: 0.8rem;
+	font-weight: 600;
+
+	color: rgb(200, 200, 200);
+}
+.note_date {
+	margin-right: 3px;
+}
+.note_date::after {
+	content: ' · ';
+}
+
+.upload_header {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.note_author {
+	text-transform: capitalize; // background: red;
+}
+.note_description {
+	font-size: 1rem;
+	// margin-top: 0.5rem;
+}
+.note_description.attached {
+	font-size: 1rem;
+	margin-top: 1rem;
+}
+
+.note_wrapper.attached > .note_header {
+	margin-top: 0.4rem;
+}
+
+.task_wrapper {
+	background: transparent;
+}
+.task_title {
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+	color: $secondary-color;
+}
+
+.atach-task {
+	border-radius: 4px 4px 0 4px !important;
+}
+
+.attached {
+	border-top: none;
+	border-radius: 0 0px 4px 4px;
+	width: calc(100% - 20px);
+	margin-left: 20px;
+	padding: 0 1rem;
+	min-height: 60px;
+}
+
+.task_header {
+	flex-direction: column;
+	.task_date {
+		text-transform: lowercase;
+		color: $primary-color;
+		font-weight: 500;
+		margin-right: 8px !important;
+	}
+	.task_contact,
+	.task_author,
+	.task_business,
+	.file_contact,
+	.file_size {
+		text-transform: capitalize;
+		color: $secondary-color;
+		margin: 0 4px;
+	}
+}
+.task_info {
+	display: flex;
+}
+
+.file_info {
+	display: flex;
+	color: $secondary-color;
+	font-weight: 500;
+	font-size: 0.8rem;
+}
+
+.historial_wrapper {
+	margin-left: 20px;
+	margin-top: 1rem;
+	margin-left: 0;
+}
+
+.history_wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.history_info {
+	display: flex;
+}
+
+.history_user,
+.history_date {
+	color: $color-scrollBar;
+	margin: 0 4px;
+}
+
+.file_date {
+	text-transform: lowercase;
+	color: $primary-color;
+	font-weight: 500;
+	margin-right: 8px !important;
+	font-size: 0.8rem;
+}
+
+.file_author,
+.file_contact {
+	text-transform: capitalize;
+	margin-right: 8px;
+}
+.file_business {
+	text-transform: capitalize;
+}
+
+.ribbon {
+	font-weight: 700 !important;
+	font-size: 0.8rem !important;
+}
+.ant-btn.ant-dropdown-trigger.add.ant-btn-primary.ant-btn-circle {
+	transition: all 300ms ease-in-out;
+}
+
+// .ant-dropdown-open {
+// }
+
+button.ant-btn-circle > span > svg {
+	transition: all 300ms ease-in-out;
+	transform: rotate(0deg);
+}
+button.ant-btn-circle:hover > span > svg {
+	transform: rotate(45deg);
+}
+
+.planed,
+.completed {
+	font-size: 0.9rem;
+	// width: 90px;
+	margin: 0.5rem auto;
+	background: rgb(109, 109, 109);
+	color: white;
+	border-radius: 3px;
+	line-height: 1.8rem;
+	padding: 0.3rem 1rem;
+	// margin-top: 1rem;
+}
+
+.historial_wrapper {
+	// padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	margin-top: 1rem;
+}
+
+.tiemeline_wrapper {
+	background: red;
+}
+
+.file_date::first-letter {
+	text-transform: uppercase;
+}
+.task_date::first-letter {
+	text-transform: uppercase;
+}
+
+.anchor {
+	color: $primary-color !important;
+	transform: rotate(-45deg);
+}
+.unanchor {
+	transition: all ease-in-out 300ms;
+	color: #e3e0e0 !important;
+	transform: rotate(0deg);
+}
+.unanchor:hover {
+	transition: all ease-in-out 300ms;
+	transform: rotate(-45deg);
+}
+.anchor_task_wrapper,
+.note_wrapper_anchor,
+.upload_wrapper_anchor {
+	margin-bottom: 0.5rem;
+	width: 93%;
+}
+
+.note_anchor {
+	position: absolute;
+	right: 0;
+	bottom: 0.5rem;
+}
+
+.task_info_wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.task_close {
+	padding: 4px 8px;
+	background: #bebebe;
+	color: white;
+	border-radius: 3px;
+	margin-bottom: 5px;
+}
