@@ -21,10 +21,10 @@ import { useMutation } from "@apollo/client";
 import { UPDATE_TAREA } from "../../Graphql/mutation/tareas";
 import { NoteContext } from "../../context/NoteContext";
 import "./form.styles.scss";
-import UploaTaskdItem from "../ui/uploadTaskItem";
+import UploadTaskItem from "../ui/uploadTaskItem";
 
 const EditTask = ({ onClose, task, taskType, urlParameters }) => {
-  console.log(String(task.pri_id));
+  console.log(task);
   //* Renderiza las props vacias por primera vez, por eso se hace resetField para tomar el initialValue
   const [updateTareaResolver] = useMutation(UPDATE_TAREA);
   const { note, setNote } = useContext(NoteContext);
@@ -45,6 +45,7 @@ const EditTask = ({ onClose, task, taskType, urlParameters }) => {
   useEffect(() => {
     form.resetFields();
   }, [form, task]);
+
   const props = {
     name: "archivo",
     multiple: false,
@@ -293,18 +294,13 @@ const EditTask = ({ onClose, task, taskType, urlParameters }) => {
               <Input
                 placeholder="Descripción de archivo"
                 style={{ width: "100%" }}
-                disabled={upload ? true : false}
+                disabled={task.up_detalle ? true : false}
               />
             </Form.Item>
 
-            {upload && showTaskItem && (
-              <UploaTaskdItem
-                upload={upload}
-                attached={false}
-                deleteItem={handleDelete}
-              ></UploaTaskdItem>
-            )}
-            {!showTaskItem && (
+            {task.up_detalle ? (
+              <UploadTaskItem upload={task}></UploadTaskItem>
+            ) : (
               <Dragger
                 {...props}
                 disabled={disabledDragger}
