@@ -28,9 +28,7 @@ const UploadTaskItem = ({ upload, attached, deleteItem }) => {
   const [uploadArchivadoResolver] = useMutation(ADJUNTO_ARCHIVADO);
 
   const onArchive = (id) => {
-    console.log(id);
-    // deleteItem(id);
-    // mutation para archivar archivo.
+    deleteItem(id);
     uploadArchivadoResolver({ variables: { idUpload: id, origin: "task" } });
   };
   return (

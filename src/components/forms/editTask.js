@@ -24,7 +24,6 @@ import "./form.styles.scss";
 import UploadTaskItem from "../ui/uploadTaskItem";
 
 const EditTask = ({ onClose, task, taskType, urlParameters }) => {
-  console.log(task);
   //* Renderiza las props vacias por primera vez, por eso se hace resetField para tomar el initialValue
   const [updateTareaResolver] = useMutation(UPDATE_TAREA);
   const { note, setNote } = useContext(NoteContext);
@@ -35,7 +34,7 @@ const EditTask = ({ onClose, task, taskType, urlParameters }) => {
 
   const [file, setFile] = useState({});
   const [fList, setFlist] = useState([]);
-  const [priority, setPriority] = useState(1);
+  const [priority, setPriority] = useState(null);
   const [showTaskItem, setShowTaskItem] = useState(false);
   const [disabledDragger] = useState(false);
   const [dateFrom, setDateFrom] = useState(null);
@@ -43,6 +42,7 @@ const EditTask = ({ onClose, task, taskType, urlParameters }) => {
   const [upload, setUpload] = useState(null);
 
   useEffect(() => {
+    setShowTaskItem(task.up_detalle ? true : false);
     form.resetFields();
   }, [form, task]);
 
@@ -124,8 +124,6 @@ const EditTask = ({ onClose, task, taskType, urlParameters }) => {
       inputAdjunto = null;
     }
 
-    console.log("ON FINISH", inputTarea, inputAdjunto, inputNota, priority);
-
     updateTareaResolver({
       variables: {
         idTarea: Number(urlParameters.idTarea),
@@ -157,7 +155,6 @@ const EditTask = ({ onClose, task, taskType, urlParameters }) => {
   };
   const onChangePriority = (e) => {
     setPriority(Number(e.target.value));
-    console.log(e);
   };
 
   return (
@@ -294,12 +291,15 @@ const EditTask = ({ onClose, task, taskType, urlParameters }) => {
               <Input
                 placeholder="Descripción de archivo"
                 style={{ width: "100%" }}
-                disabled={task.up_detalle ? true : false}
+                disabled={showTaskItem ? true : false}
               />
             </Form.Item>
 
-            {task.up_detalle ? (
-              <UploadTaskItem upload={task}></UploadTaskItem>
+            {showTaskItem ? (
+              <UploadTaskItem
+                upload={task}
+                deleteItem={handleDelete}
+              ></UploadTaskItem>
             ) : (
               <Dragger
                 {...props}
